@@ -1,5 +1,24 @@
 # BLE 라이브러리 사용 가이드
 
+## 0. 사용법
+```kotlin
+// build.gradle (project)
+	dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+```kotlin
+// build.gradle (app)
+    dependencies {
+        implementation 'com.github.Dalso13:jdw-bluetooth:v0.0.1'
+    }
+```
+
+
 ## 📱 1. 기본 설정
 
 ### Config 정의
