@@ -14,7 +14,7 @@
 ```kotlin
 // build.gradle (app)
     dependencies {
-        implementation 'com.github.Dalso13:jdw-bluetooth:v0.0.3'
+        implementation 'com.github.Dalso13:jdw-bluetooth:v0.0.4'
     }
 ```
 
@@ -36,7 +36,7 @@ data class MyBleConfig(
 
 ### Client 생성
 ```kotlin
-val bleClient = BluetoothLibrary.createClient(
+val bleClient = JdwBluetooth.createClient(
     context = applicationContext,
     config = MyBleConfig()
 )
