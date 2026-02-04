@@ -14,7 +14,7 @@
 ```kotlin
 // build.gradle (app)
     dependencies {
-        implementation 'com.github.Dalso13:jdw-bluetooth:v0.0.2'
+        implementation 'com.github.Dalso13:jdw-bluetooth:v0.0.3'
     }
 ```
 
@@ -71,8 +71,8 @@ fun ScanScreen(viewModel: BleViewModel) {
     
     when (val state = scanState) {
         BleScanState.Idle -> Text("스캔 대기 중")
-        BleScanState.Scanning -> CircularProgressIndicator()
-        is BleScanState.Scanned -> {
+        is BleScanState.Scanning -> {
+            CircularProgressIndicator()
             LazyColumn {
                 items(state.results) { scanResult ->
                     DeviceItem(
