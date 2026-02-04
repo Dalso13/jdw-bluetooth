@@ -14,7 +14,7 @@
 ```kotlin
 // build.gradle (app)
     dependencies {
-        implementation 'com.github.Dalso13:jdw-bluetooth:v0.0.1'
+        implementation 'com.github.Dalso13:jdw-bluetooth:v0.0.2'
     }
 ```
 
