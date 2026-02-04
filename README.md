@@ -2,7 +2,7 @@
 
 ## 0. 사용법
 ```kotlin
-// build.gradle (project)
+// setting.gradle.kts
 	dependencyResolutionManagement {
 		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
 		repositories {
