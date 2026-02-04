@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import com.jdw.bluetooth.test.ui.theme.Ble_testTheme
-import com.jdw.module.core.bluetooth.BluetoothLibrary
+import com.jdw.module.core.bluetooth.JdwBluetooth
 import com.jdw.module.core.bluetooth.contract.BleConnectionState
 import com.jdw.module.core.bluetooth.contract.BleScanState
 
@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         // BLE Client 생성
-        val bleClient = BluetoothLibrary.createClient(
+        val bleClient = JdwBluetooth.createClient(
             context = applicationContext,
             config = MyBleConfig()
         )

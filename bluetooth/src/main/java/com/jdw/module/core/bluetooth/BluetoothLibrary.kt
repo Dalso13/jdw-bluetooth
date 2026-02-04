@@ -5,7 +5,7 @@ import com.jdw.module.core.bluetooth.contract.BleClient
 import com.jdw.module.core.bluetooth.contract.BleConfig
 import com.jdw.module.core.bluetooth.internal.DefaultBleClient
 
-object BluetoothLibrary {
+object JdwBluetooth {
 
     /**
      * BleClient 인스턴스를 생성하는 유일한 진입점
