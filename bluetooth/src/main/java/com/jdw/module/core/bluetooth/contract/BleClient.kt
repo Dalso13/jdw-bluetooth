@@ -7,8 +7,15 @@ import kotlinx.coroutines.flow.StateFlow
 /**
  * 블루투스 클라이언트
  * @property scanState 스캔 상태
+ * @property connectionState 연결 상태
+ * @property notifyFlow 데이터 수신 Flow (Notification/Indication)
  * @property startScan 스캔 시작
  * @property stopScan 스캔 중지
+ * @property connect 연결 시작
+ * @property disconnect 연결 해제
+ * @property writeCharacteristic 데이터 쓰기
+ * @property readCharacteristic 데이터 읽기
+ * @property close 종료
  */
 interface BleClient {
 

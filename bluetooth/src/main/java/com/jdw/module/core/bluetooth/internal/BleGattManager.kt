@@ -19,7 +19,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -370,8 +369,10 @@ internal class BleGattManager(
                     }
                 }
 
-                // Notification 자동 활성화
-                enableNotification()
+                // Notification 사용시 자동 활성화
+                if (config.enableNotificationOnConnect){
+                    enableNotification()
+                }
 
                 // 통신 준비 완료
                 BleLogger.success(BleLogger.Component.GATT, "Service discovery completed, device ready!")
@@ -524,6 +525,11 @@ internal class BleGattManager(
      */
     private fun enableNotification() {
         BleLogger.d(BleLogger.Component.GATT, "enableNotification() called")
+
+        if (config.notifyCharUuid == null) {
+            BleLogger.w(BleLogger.Component.GATT, "Notification not enabled - notifyCharUuid is null")
+            return
+        }
 
         try {
             val service = bluetoothGatt?.getService(UUID.fromString(config.serviceUuid))
