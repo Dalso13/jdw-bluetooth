@@ -70,7 +70,7 @@ class BleScanner (
                 // O(1) 업데이트
                 scannedDevices[newResult.device.address] = newResult
                 // 상태 업데이트
-                _scanState.value = BleScanState.Scanned(scannedDevices.values.toList())
+                _scanState.value = BleScanState.Scanning(scannedDevices.values.toList())
             }
         }
 
@@ -98,8 +98,8 @@ class BleScanner (
 
         // 기존 리스트 초기화
         scannedDevices.clear()
-        BleLogger.state(BleLogger.Component.SCANNER, _scanState.value, BleScanState.Scanning)
-        _scanState.value = BleScanState.Scanning
+        BleLogger.state(BleLogger.Component.SCANNER, _scanState.value, BleScanState.Scanning(scannedDevices.values.toList()))
+        _scanState.value = BleScanState.Scanning(scannedDevices.values.toList())
 
         // 스캔 필터 설정
         val filters = mutableListOf<ScanFilter>()

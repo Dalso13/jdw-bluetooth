@@ -219,7 +219,7 @@ fun BleTestScreen(viewModel: BleViewModel, activity: ComponentActivity) {
                 BleScanState.Idle -> {
                     Text("스캔 대기 중...", style = MaterialTheme.typography.bodyMedium)
                 }
-                BleScanState.Scanning -> {
+                is BleScanState.Scanning -> {
                     Row(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.Center
@@ -228,8 +228,7 @@ fun BleTestScreen(viewModel: BleViewModel, activity: ComponentActivity) {
                         Spacer(modifier = Modifier.width(16.dp))
                         Text("스캔 중...")
                     }
-                }
-                is BleScanState.Scanned -> {
+
                     Text(
                         "📡 발견된 기기: ${state.results.size}개",
                         style = MaterialTheme.typography.titleSmall
